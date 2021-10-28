@@ -5,11 +5,13 @@
 #include <QString>
 #include <QStringList> 
 #include <QDebug>
-#include <QSignalMapper>
+//#include <QSignalMapper>
 //#include <QWidget>
 
 #include <gui/extprocess.h>
 #include <gui/test.h>
+//#include <gui/tabManager.h>
+
 
 using namespace gui;
 
@@ -20,10 +22,18 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(changedTab(int)));
-    connect(this, SIGNAL(changeTab(int)), ui->tabWidget, SLOT(setCurrentIndex(int)));
-    connect(ui->rightButton, SIGNAL(clicked()), this, SLOT(rightTab())); //&QSignalMapper::map() & ::mapped() not std::
-    connect(ui->leftButton, SIGNAL(clicked()), this, SLOT(leftTab()));
+    /*
+    _tabManager = new tabManager(ui->tabWidget.currentIndex());
+    connect(ui->tabWidget, SIGNAL(currentChanged(int)), _tabManager, SLOT(changedTab(int)));
+    connect(_tabManager, SIGNAL(changeTab(int)), ui->tabWidget, SLOT(setCurrentIndex(int)));
+    connect(ui->rightButton, SIGNAL(clicked()), _tabManager, SLOT(rightTab())); //&QSignalMapper::map() & ::mapped() not std::
+    connect(ui->leftButton, SIGNAL(clicked()), _tabManager, SLOT(leftTab()));
+    */
+
+    //connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(changedTab(int)));
+    //connect(this, SIGNAL(changeTab(int)), ui->tabWidget, SLOT(setCurrentIndex(int)));
+    //connect(ui->rightButton, SIGNAL(clicked()), this, SLOT(rightTab())); //&QSignalMapper::map() & ::mapped() not std::
+    //connect(ui->leftButton, SIGNAL(clicked()), this, SLOT(leftTab()));
     
     connect(ui->commandLinkButton, SIGNAL(clicked()), this, SLOT(startProcess()));
 

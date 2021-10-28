@@ -21,6 +21,8 @@ find_package(Qt5 COMPONENTS Core REQUIRED) #find_package(Qt5Core    5.5.1 REQUIR
 # Files
 file(GLOB_RECURSE SRCS  "${PROJECT_SOURCE_DIR}/src/*.c*")
 file(GLOB_RECURSE HDRS  "${PROJECT_SOURCE_DIR}/include/gui/*.h*")
+#file(GLOB_RECURSE UIS   "${PROJECT_SOURCE_DIR}/src/*.ui")
+
 
 
 # Include
@@ -30,6 +32,7 @@ include_directories("${PROJECT_SOURCE_DIR}/include" "${PROJECT_BINARY_DIR}/src")
 add_executable(gui
     ${SRCS}
     ${HDRS}
+#    ${UIS}
 )
 
 # QtShit

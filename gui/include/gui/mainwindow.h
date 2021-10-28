@@ -3,16 +3,13 @@
 
 #include <QMainWindow>
 #include <QProcess>
-#include <QSignalMapper>
+//#include <QSignalMapper>
 
 #include <gui/extprocess.h>
 #include <gui/test.h>
+//#include <gui/tabManager.h>
 
 using namespace gui;
-
-namespace Ui {
-class MainWindow;
-}
 
 enum tabs{Sonda, Data, Simulation, Plot};
 
@@ -35,6 +32,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    //tabManager *_tabManager;
     
     enum tabs _tab=Sonda;
 
