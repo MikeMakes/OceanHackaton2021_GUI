@@ -11,6 +11,10 @@
 
 using namespace gui;
 
+namespace Ui {
+class MainWindow;
+}
+
 enum tabs{Sonda, Data, Simulation, Plot};
 
 class MainWindow : public QMainWindow

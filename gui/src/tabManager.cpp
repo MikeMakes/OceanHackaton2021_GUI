@@ -1,7 +1,12 @@
 #include <gui/tabManager.h>
 
-tabManager::tabManager(int currentTab){
-    _tab = static_cast<tabs>(currentTab);
+tabManager::tabManager(QObject *parent, int currentTab):
+    //QMainWindow(parent),
+    //ui(new Ui::MainWindow),
+    _parent(parent),
+    _tab(static_cast<tabs>(currentTab))   
+{
+    //_tab = static_cast<tabs>(currentTab);
 }
 
 tabManager::~tabManager(){
@@ -48,9 +53,3 @@ void tabManager::leftTab(){
 int tabManager::currentTab(){
     return (int)_tab;
 }
-
-/*
-enum tabs tabManager::currentTab(){
-    return _tab;
-}
-*/
