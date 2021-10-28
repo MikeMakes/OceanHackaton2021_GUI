@@ -14,7 +14,7 @@ namespace Ui {
 class MainWindow;
 }
 
-enum tabs{Sonda, Data, Simulation, Plot, Left, Right};
+enum tabs{Sonda, Data, Simulation, Plot};
 
 class MainWindow : public QMainWindow
 {
@@ -29,11 +29,12 @@ signals:
 
 private slots:
     void changedTab(int tab);
+    void rightTab();
+    void leftTab();
     void startProcess();
 
 private:
     Ui::MainWindow *ui;
-    QSignalMapper *_signal_mapper;
     
     enum tabs _tab=Sonda;
 
