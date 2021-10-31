@@ -3,11 +3,12 @@
 
 #include <QMainWindow>
 #include <QProcess>
+#include <QAbstractButton>
 //#include <QSignalMapper>
 
 #include <gui/extprocess.h>
 #include <gui/test.h>
-//#include <gui/tabManager.h>
+#include <gui/tabManager.h>
 
 using namespace gui;
 
@@ -15,7 +16,7 @@ namespace Ui {
 class MainWindow;
 }
 
-enum tabs{Sonda, Data, Simulation, Plot};
+//enum tabs{Sonda, Data, Simulation, Plot};
 
 class MainWindow : public QMainWindow
 {
@@ -26,18 +27,16 @@ public:
     ~MainWindow();
 
 signals:
-    void changeTab(int tabindex);
+    //void changeTab(int tabindex);
 
 private slots:
-    void changedTab(int tab);
-    void rightTab();
-    void leftTab();
+    //void slotTest(int n);
     void startProcess();
 
 private:
     Ui::MainWindow *ui;
 
-    //tabManager *_tabManager;
+    tabManager *_tabManager;
     
     enum tabs _tab=Sonda;
 

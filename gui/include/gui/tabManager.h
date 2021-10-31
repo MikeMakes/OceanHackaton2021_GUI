@@ -7,6 +7,7 @@
 enum tabs{Sonda, Data, Simulation, Plot};
 
 class tabManager: public QObject{
+    Q_OBJECT
     public:
         tabManager(QObject *parent=0, int currentTab=0);
         ~tabManager();
@@ -24,8 +25,6 @@ class tabManager: public QObject{
 
     private:
         enum tabs _tab=Sonda;
-        QObject* _parent;
-
 };
 
 #endif //TABMANAGER_H

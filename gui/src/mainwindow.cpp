@@ -5,12 +5,13 @@
 #include <QString>
 #include <QStringList> 
 #include <QDebug>
+#include <QAbstractButton>
 //#include <QSignalMapper>
 //#include <QWidget>
 
 #include <gui/extprocess.h>
 #include <gui/test.h>
-//#include <gui/tabManager.h>
+#include <gui/tabManager.h>
 
 
 using namespace gui;
@@ -22,18 +23,14 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    /*
-    _tabManager = new tabManager(ui->tabWidget.currentIndex());
-    connect(ui->tabWidget, SIGNAL(currentChanged(int)), _tabManager, SLOT(changedTab(int)));
-    connect(_tabManager, SIGNAL(changeTab(int)), ui->tabWidget, SLOT(setCurrentIndex(int)));
-    connect(ui->rightButton, SIGNAL(clicked()), _tabManager, SLOT(rightTab())); //&QSignalMapper::map() & ::mapped() not std::
-    connect(ui->leftButton, SIGNAL(clicked()), _tabManager, SLOT(leftTab()));
-    */
-
-    //connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(changedTab(int)));
-    //connect(this, SIGNAL(changeTab(int)), ui->tabWidget, SLOT(setCurrentIndex(int)));
-    //connect(ui->rightButton, SIGNAL(clicked()), this, SLOT(rightTab())); //&QSignalMapper::map() & ::mapped() not std::
-    //connect(ui->leftButton, SIGNAL(clicked()), this, SLOT(leftTab()));
+    
+    _tabManager = new tabManager(this,ui->tabWidget->currentIndex());
+    connect(ui->tabWidget, &QTabWidget::currentChanged, _tabManager, &tabManager::changedTab);
+    connect(_tabManager, SIGNAL(changeTab(int)), ui->horizontalSlider, SLOT(setValue(int)));
+    //connect(_tabManager, SIGNAL(changeTab(int)), ui->tabWidget, SLOT(setCurrentIndex(int)));
+    connect(_tabManager, &tabManager::changeTab, ui->tabWidget, &QTabWidget::setCurrentIndex);
+    connect(ui->rightButton, &QPushButton::clicked, _tabManager, &tabManager::rightTab); //&QSignalMapper::map() & ::mapped() not std::
+    connect(ui->leftButton, &QPushButton::clicked, _tabManager, &tabManager::leftTab);
     
     connect(ui->commandLinkButton, SIGNAL(clicked()), this, SLOT(startProcess()));
 
@@ -44,42 +41,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::rightTab(){
-    if(_tab==tabs::Plot) _tab=tabs::Sonda;
-    else _tab=static_cast<tabs>((int)_tab+1);
-    emit changeTab((int)_tab);
-    qDebug() << "Right";
+/*
+void MainWindow::slotTest(int n){
+    qDebug() << n;
 }
-
-void MainWindow::leftTab(){
-    if(_tab==tabs::Sonda) _tab=tabs::Plot;
-    else _tab=static_cast<tabs>((int)_tab-1);
-    emit changeTab((int)_tab);
-    qDebug() << "Left";
-}
-
-void MainWindow::changedTab(int tab){
-    switch (tab){
-        case tabs::Sonda:
-            _tab = tabs::Sonda;
-            qDebug() << "Sonda";
-            break;
-        case tabs::Data:
-            _tab = tabs::Data;
-            qDebug() << "Data";
-            break;
-        case tabs::Simulation:
-            _tab = tabs::Simulation;
-            qDebug() << "Simulation";
-            break;
-        case tabs::Plot:
-            _tab = tabs::Plot;
-            qDebug() << "Plot";
-            break;
-        default:
-            break;
-    }
-}
+*/
 
 void MainWindow::startProcess(){
     enum QProcess::ProcessState state;

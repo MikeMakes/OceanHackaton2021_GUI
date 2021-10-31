@@ -1,9 +1,7 @@
 #include <gui/tabManager.h>
 
 tabManager::tabManager(QObject *parent, int currentTab):
-    //QMainWindow(parent),
-    //ui(new Ui::MainWindow),
-    _parent(parent),
+    QObject(parent),
     _tab(static_cast<tabs>(currentTab))   
 {
     //_tab = static_cast<tabs>(currentTab);
@@ -39,14 +37,14 @@ void tabManager::changedTab(int currentTab){
 void tabManager::rightTab(){
     if(_tab==tabs::Plot) _tab=tabs::Sonda;
     else _tab=static_cast<tabs>((int)_tab+1);
-    emit changeTab((int)_tab);
+    Q_EMIT changeTab((int)_tab);
     qDebug() << "Right";
 }
 
 void tabManager::leftTab(){
     if(_tab==tabs::Sonda) _tab=tabs::Plot;
     else _tab=static_cast<tabs>((int)_tab-1);
-    emit changeTab((int)_tab);
+    Q_EMIT changeTab((int)_tab);
     qDebug() << "Left";
 }
 

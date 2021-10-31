@@ -549,7 +549,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
-    <item row="1" column="2">
+    <item row="2" column="2">
      <widget class="QPushButton" name="leftButton">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -584,7 +584,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       </property>
      </widget>
     </item>
-    <item row="1" column="4">
+    <item row="2" column="4">
      <widget class="QPushButton" name="rightButton">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -618,7 +618,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       </property>
      </widget>
     </item>
-    <item row="1" column="5">
+    <item row="2" column="5">
      <spacer name="horizontalSpacer">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -634,7 +634,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       </property>
      </spacer>
     </item>
-    <item row="1" column="1">
+    <item row="2" column="1">
      <spacer name="horizontalSpacer_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -656,7 +656,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="iconSize">
        <size>
@@ -789,7 +789,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           </item>
          </layout>
         </item>
-        <item row="1" column="0">
+        <item row="2" column="0">
          <widget class="QPushButton" name="pushButton">
           <property name="text">
            <string>PushButton</string>
@@ -800,7 +800,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       </widget>
      </widget>
     </item>
-    <item row="1" column="3">
+    <item row="2" column="3">
      <spacer name="horizontalSpacer_5">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
@@ -816,9 +816,83 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       </property>
      </spacer>
     </item>
+    <item row="1" column="1" colspan="5">
+     <widget class="QSlider" name="horizontalSlider">
+      <property name="styleSheet">
+       <string notr="true">QSlider::groove:horizontal {
+	height: 10px;
+	background-color: rgba(255, 255, 255, 0);
+}
+QSlider::handle:horizontal {
+	background:rgba(255, 255, 255, 0);
+	border-style: none;
+	border-width: 1px;
+	border-color: rgba(255, 255, 255, 0);
+	width: 1px;
+	margin: 1px;
+	border-radius: 1px;
+}
+QSlider::add-page:horizontal {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb(252, 175, 62), stop:1 rgba(255, 255, 255, 0));
+}
+QSlider::sub-page:horizontal {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 0), stop:1 rgb(252, 175, 62));
+}
+</string>
+      </property>
+      <property name="maximum">
+       <number>3</number>
+      </property>
+      <property name="singleStep">
+       <number>1</number>
+      </property>
+      <property name="pageStep">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>horizontalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>tabWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>313</x>
+     <y>517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabWidget</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>horizontalSlider</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>313</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>517</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
