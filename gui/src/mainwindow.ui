@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>627</width>
-    <height>637</height>
+    <width>803</width>
+    <height>538</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,22 +22,22 @@ Last updated: 25/02/2020, 15:42.
 Available at: https://github.com/GTRONICK/QSS/blob/master/ManjaroMix.qss
 */
 QMainWindow {
-	background-color:#151a1e;
+	background-color:#1c174d;
 }
 QCalendar {
-	background-color: #151a1e;
+	background-color: #1c174d;
 }
 QTextEdit {
 	border-width: 1px;
 	border-style: solid;
-	border-color: #4fa08b;
+	border-color: #e24d1b;
 	background-color: #222b2e;
 	color: #d3dae3;
 }
 QPlainTextEdit {
 	border-width: 1px;
 	border-style: solid;
-	border-color: #4fa08b;
+	border-color: #e24d1b;
 	background-color: #222b2e;
 	color: #d3dae3;
 }
@@ -51,7 +51,7 @@ QToolButton {
 	border-radius: 5px;
 	color: #d3dae3;
 	padding: 2px;
-	background-color: rgb(255,255,255);
+	background-color: #1c174d;
 }
 QToolButton:hover{
 	border-style: solid;
@@ -63,7 +63,7 @@ QToolButton:hover{
 	border-radius: 5px;
 	color: rgb(0,0,0);
 	padding: 2px;
-	background-color: rgb(255,255,255);
+	background-color: #1c174d;
 }
 QToolButton:pressed{
 	border-style: solid;
@@ -128,7 +128,7 @@ QPushButton:disabled{
 QLineEdit {
 	border-width: 1px;
 	border-style: solid;
-	border-color: #4fa08b;
+	border-color: #e24d1b;
 	background-color: #222b2e;
 	color: #d3dae3;
 }
@@ -236,7 +236,7 @@ QTabBar::tab:selected, QTabBar::tab:last:selected, QTabBar::tab:hover {
 	border-top-color: #050a0e;
 	border-left-color: #050a0e;
 	border-bottom-color: #050a0e;
-	color: #FFFFFF;
+	color: #e24d1b;
 	padding: 3px;
 	margin-left:0px;
 	background-color: #1e282c;
@@ -251,7 +251,7 @@ QTabBar::tab:selected, QTabBar::tab:first:selected, QTabBar::tab:hover {
 	border-top-color: #050a0e;
 	border-left-color: #050a0e;
 	border-bottom-color: #050a0e;
-	color: #FFFFFF;
+	color: #e24d1b;
 	padding: 3px;
 	margin-left:0px;
 	background-color: #1e282c;
@@ -369,7 +369,7 @@ QComboBox {
 	background-color: #222b2e;
 	border-width: 1px;
 	border-style: solid;
-	border-color: #4fa08b;
+	border-color: #e24d1b;
 }
 
 QDial {
@@ -656,7 +656,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -680,10 +680,36 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0" colspan="5">
-           <widget class="QTextBrowser" name="textBrowser"/>
+          <item row="0" column="3">
+           <widget class="QPushButton" name="pushButton_2">
+            <property name="text">
+             <string>Conectar</string>
+            </property>
+           </widget>
           </item>
-          <item row="1" column="2">
+          <item row="0" column="0" colspan="2">
+           <widget class="QComboBox" name="comboBox_3">
+            <property name="editable">
+             <bool>true</bool>
+            </property>
+            <item>
+             <property name="text">
+              <string>Sonda 1</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sonda 2</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sonda 3</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="4" column="2">
            <widget class="QCommandLinkButton" name="commandLinkButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -702,7 +728,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </widget>
           </item>
-          <item row="1" column="3">
+          <item row="4" column="3">
            <spacer name="horizontalSpacer_4">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -718,7 +744,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             </property>
            </spacer>
           </item>
-          <item row="1" column="1">
+          <item row="4" column="1">
            <spacer name="horizontalSpacer_3">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -730,6 +756,29 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
              </size>
             </property>
            </spacer>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Calidad del agua</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1">
+           <widget class="colorIndicator" name="widget" native="true"/>
           </item>
          </layout>
         </item>
@@ -745,10 +794,29 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
           <item row="0" column="0" colspan="2">
            <widget class="QTextBrowser" name="textBrowser_Data"/>
           </item>
+          <item row="1" column="0">
+           <widget class="QComboBox" name="comboBox">
+            <property name="minimumContentsLength">
+             <number>0</number>
+            </property>
+            <property name="duplicatesEnabled">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboBox_2"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLineEdit" name="lineEdit"/>
+          </item>
          </layout>
         </item>
         <item row="1" column="0">
          <widget class="QPushButton" name="pushButton_3">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>PushButton</string>
           </property>
@@ -761,19 +829,81 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         <string>Simulation</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout_7">
-          <item row="0" column="0" colspan="2">
-           <widget class="QTextBrowser" name="textBrowser_Data_2"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="text">
-           <string>PushButton</string>
+        <item row="2" column="0">
+         <widget class="QLineEdit" name="lineEditInt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
          </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>meh</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Double</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="1">
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="2">
+         <spacer name="horizontalSpacer_8">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Int</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineEditDouble"/>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLineEdit" name="lineEditString"/>
         </item>
        </layout>
       </widget>
@@ -783,11 +913,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </attribute>
        <layout class="QGridLayout" name="gridLayout_9">
         <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout_8">
-          <item row="0" column="0" colspan="2">
-           <widget class="QTextBrowser" name="textBrowser_Data_3"/>
-          </item>
-         </layout>
+         <layout class="QGridLayout" name="gridLayout_8"/>
         </item>
         <item row="2" column="0">
          <widget class="QPushButton" name="pushButton">
@@ -833,10 +959,10 @@ QSlider::handle:horizontal {
 	border-radius: 1px;
 }
 QSlider::add-page:horizontal {
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb(252, 175, 62), stop:1 rgba(255, 255, 255, 0));
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb(225, 78, 26), stop:1 rgba(255, 255, 255, 0));
 }
 QSlider::sub-page:horizontal {
-    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 0), stop:1 rgb(252, 175, 62));
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 255, 255, 0), stop:1 rgb(225, 78, 26));
 }
 </string>
       </property>
@@ -860,6 +986,14 @@ QSlider::sub-page:horizontal {
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>colorIndicator</class>
+   <extends>QWidget</extends>
+   <header>colorindicator.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>

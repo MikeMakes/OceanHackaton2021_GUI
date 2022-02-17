@@ -6,6 +6,13 @@
 #include <QStringList> 
 #include <QDebug>
 #include <QAbstractButton>
+#include <QIntValidator>
+#include <QDoubleValidator>
+#include <QFile>
+#include <QtCharts>
+#include <QLineSeries>
+#include <QChart>
+#include <QChartView>
 //#include <QSignalMapper>
 //#include <QWidget>
 
@@ -22,8 +29,9 @@ MainWindow::MainWindow(QWidget *parent) :
     myprocess(parent)
 {
     ui->setupUi(this);
+    //SetStyle();
 
-    
+    // Tabs
     _tabManager = new tabManager(this,ui->tabWidget->currentIndex());
     connect(ui->tabWidget, &QTabWidget::currentChanged, _tabManager, &tabManager::changedTab);
     connect(_tabManager, SIGNAL(changeTab(int)), ui->horizontalSlider, SLOT(setValue(int)));
@@ -32,13 +40,59 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->rightButton, &QPushButton::clicked, _tabManager, &tabManager::rightTab); //&QSignalMapper::map() & ::mapped() not std::
     connect(ui->leftButton, &QPushButton::clicked, _tabManager, &tabManager::leftTab);
     
+    // Validators
+    ui->lineEditInt->setValidator(new QIntValidator(0,20,this));
+    ui->lineEditDouble->setValidator(new QDoubleValidator(-5.0,2.0,5,this));
+    ui->lineEditString->setValidator(new QDoubleValidator(-10.4,40.6,1,this));
+
+    // Cmd button
     connect(ui->commandLinkButton, SIGNAL(clicked()), this, SLOT(startProcess()));
+
+    // Charts
+    QLineSeries* series = new QLineSeries();
+    series->append(0, 6);
+    series->append(2, 4);
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+    chart->setTitle("line chart");
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    //another
+    QLineSeries* series1 = new QLineSeries();
+    series1->append(2, 4);
+    series1->append(0, 6);
+    QChart *chart1 = new QChart();
+    chart1->legend()->hide();
+    chart1->addSeries(series1);
+    chart1->createDefaultAxes();
+    chart1->setTitle("line chart");
+    QChartView *chartView1 = new QChartView(chart1);
+    chartView1->setRenderHint(QPainter::Antialiasing);
+    // create layout
+    //QGridLayout layout;
+    //layout.addWidget(chartView);
+    //this->ui->tabPlot->setLayout(&layout);
+    this->ui->tabPlot->layout()->addWidget(chartView);
+    this->ui->tabPlot->layout()->addWidget(chartView1);
+    // position view to chartview
+    //this->ui->stackedWidget->setCurrentIndex(8);
+    this->ui->tabWidget->setCurrentIndex(this->ui->tabWidget->indexOf(this->ui->tabPlot));
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::SetStyle(){
+      QFile file(_stylesheet_file);
+      file.open(QFile::ReadOnly);
+      QString _stylesheet = QLatin1String(file.readAll());
+      qApp->setStyleSheet(_stylesheet);
+      file.close();
 }
 
 /*

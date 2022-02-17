@@ -25,6 +25,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void SetStyle();
 
 signals:
     //void changeTab(int tabindex);
@@ -43,6 +44,9 @@ private:
     Extprocess _extprocess;
     QProcess myprocess;
     bool started=false;
+
+    QString _stylesheet_file="/home/user/Documents/hackathon/gui/resources/ManjaroMix.qss";
+    QString _stylesheet;
 };
 
 #endif // MAINWINDOW_H
