@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>627</width>
-    <height>637</height>
+    <width>682</width>
+    <height>669</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -656,7 +656,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <property name="iconSize">
        <size>
@@ -811,18 +811,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        </attribute>
        <layout class="QGridLayout" name="gridLayout_9">
         <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout_8">
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap>../../web/Figure_1.png</pixmap>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <layout class="QGridLayout" name="gridLayout_8"/>
         </item>
         <item row="2" column="0">
          <widget class="QPushButton" name="pushButton">
