@@ -656,7 +656,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -681,7 +681,13 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="0" colspan="5">
-           <widget class="QTextBrowser" name="textBrowser"/>
+           <widget class="QTextBrowser" name="textBrowser">
+            <property name="source">
+             <url>
+              <string>file:///mnt/data/Documents/hackathon/web/CAD03 - Distributed-sensor oriented aquaculture system for fish-algae growing optimization.html</string>
+             </url>
+            </property>
+           </widget>
           </item>
           <item row="1" column="2">
            <widget class="QCommandLinkButton" name="commandLinkButton">
@@ -742,15 +748,37 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <layout class="QGridLayout" name="gridLayout_6">
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0" colspan="2">
-           <widget class="QTextBrowser" name="textBrowser_Data"/>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../../web/sc1.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="openExternalLinks">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item row="1" column="0">
          <widget class="QPushButton" name="pushButton_3">
           <property name="text">
-           <string>PushButton</string>
+           <string>Show</string>
           </property>
          </widget>
         </item>
@@ -784,8 +812,15 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
        <layout class="QGridLayout" name="gridLayout_9">
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout_8">
-          <item row="0" column="0" colspan="2">
-           <widget class="QTextBrowser" name="textBrowser_Data_3"/>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../../web/Figure_1.png</pixmap>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -891,6 +926,22 @@ QSlider::sub-page:horizontal {
     <hint type="destinationlabel">
      <x>313</x>
      <y>517</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>pressed()</signal>
+   <receiver>label</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>313</x>
+     <y>544</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>286</y>
     </hint>
    </hints>
   </connection>
